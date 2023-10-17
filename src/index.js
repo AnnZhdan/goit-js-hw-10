@@ -10,11 +10,13 @@ const ref = {
     loader: document.querySelector('.loader'),
     error: document.querySelector('.error'),
 };
+const { selector, divCatInfo, loader, error } = ref;
 
-
-loader.classList.replace('loader', 'is-hidden');
+// loader.classList.replace('loader', 'is-hidden');
+selector.classList.add('is-hidden');
 error.classList.add('is-hidden');
 divCatInfo.classList.add('is-hidden');
+divCatInfo.innerHTML = '';
 
 let arrBreedsId = [];
 fetchBreeds()
@@ -35,7 +37,6 @@ function onSelectBreed(event) {
     loader.classList.replace('is-hidden', 'loader');
     selector.classList.add('is-hidden');
     divCatInfo.classList.add('is-hidden');
-    
 
     const breedId = event.currentTarget.value;
     fetchCatByBreed(breedId)
