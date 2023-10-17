@@ -12,11 +12,9 @@ const ref = {
 };
 const { selector, divCatInfo, loader, error } = ref;
 
-// loader.classList.replace('loader', 'is-hidden');
-selector.classList.add('is-hidden');
+loader.classList.replace('loader', 'is-hidden');
 error.classList.add('is-hidden');
 divCatInfo.classList.add('is-hidden');
-divCatInfo.innerHTML = '';
 
 let arrBreedsId = [];
 fetchBreeds()
