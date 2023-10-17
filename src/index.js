@@ -12,9 +12,14 @@ const ref = {
 };
 const { selector, divCatInfo, loader, error } = ref;
 
-loader.classList.replace('loader', 'is-hidden');
-error.classList.add('is-hidden');
+selector.classList.add('is-hidden');
+divCatInfo.innerHTML = '';
 divCatInfo.classList.add('is-hidden');
+loader.classList.replace('loader', 'is-hidden');
+
+// loader.classList.replace('loader', 'is-hidden');
+error.classList.add('is-hidden');
+// divCatInfo.classList.add('is-hidden');
 
 let arrBreedsId = [];
 fetchBreeds()
@@ -34,9 +39,11 @@ selector.addEventListener('change', onSelectBreed);
 function onSelectBreed(event) {
     loader.classList.replace('is-hidden', 'loader');
     selector.classList.add('is-hidden');
-    divCatInfo.classList.add('is-hidden');
+    // divCatInfo.classList.add('is-hidden');
 
     const breedId = event.currentTarget.value;
+    divCatInfo.innerHTML = ''; 
+    divCatInfo.classList.add('is-hidden'); 
     fetchCatByBreed(breedId)
     .then(data => {
         loader.classList.replace('loader', 'is-hidden');
